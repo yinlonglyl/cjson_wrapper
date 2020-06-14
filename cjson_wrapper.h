@@ -7,6 +7,16 @@ extern "C" {
 
 #include <cJSON.h>
 
+#ifndef SIMPLE_LOGGER
+#include <stdio.h>
+#define logi printf
+#define logd printf
+#define loge printf
+#define logw printf
+#else
+#include "simple_log.h"
+#endif
+
 #define JSON_FREE(Pointer)         \
         do {\
             if (Pointer)    \
